@@ -14,10 +14,13 @@ public class PolynomialImpl implements Polynomial {
 
   public PolynomialImpl(String str) {
     this.terms = new ArrayList<>();
-    String[] strs = str.split(" ");
-    for (String s : strs) {
-      if (!s.equals("0")) {
-        terms.add(new Term(s));
+
+    if (str.length() != 0) {
+      String[] strs = str.split(" ");
+      for (String s : strs) {
+        if (!s.equals("0")) {
+          terms.add(new Term(s));
+        }
       }
     }
   }
@@ -53,7 +56,7 @@ public class PolynomialImpl implements Polynomial {
         return t.getCoeff();
       }
     }
-    throw new NoSuchElementException("No matched power term exists.");
+    return 0;
   }
 
   @Override
@@ -68,7 +71,6 @@ public class PolynomialImpl implements Polynomial {
 
   @Override
   public Polynomial add(Polynomial other) {
-    // { power: coefficient }
     Map<Integer, Integer> map = new HashMap<>();
 
     for (Term t : terms) {
@@ -91,8 +93,9 @@ public class PolynomialImpl implements Polynomial {
   private Polynomial transfer(Map<Integer, Integer> map) {
     Polynomial newP = new PolynomialImpl();
     for (Integer i : map.keySet()) {
-      if (map.get(i))
-      newP.addTerm(map.get(i), i);
+      if (map.get(i) != 0) {
+        newP.addTerm(map.get(i), i);
+      }
     }
 
     return newP;
@@ -100,7 +103,6 @@ public class PolynomialImpl implements Polynomial {
 
   @Override
   public Polynomial multiply(Polynomial other) {
-    // { power: coefficient }
     Map<Integer, Integer> map = new HashMap<>();
 
     for (Term t : terms) {
@@ -129,6 +131,10 @@ public class PolynomialImpl implements Polynomial {
   public String toString() {
     Collections.sort(terms, (t1, t2) -> (t2.getPower() - t1.getPower()));
     StringBuilder sb = new StringBuilder();
+    if (terms.size() == 0) {
+      return "0";
+    }
+
     for (Term t : terms) {
       sb.append(t.toString());
     }

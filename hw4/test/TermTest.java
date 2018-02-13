@@ -62,5 +62,4 @@ public class TermTest {
     assertEquals("+4", t2.toString());
     assertEquals("-3x^2", t3.toString());
   }
-
 }
