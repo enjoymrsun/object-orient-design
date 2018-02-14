@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f66bb95b-e675-41de-b573-70681c511814" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/PolynomialImplTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/hw4/PolynomialImpl.class" afterPath="$PROJECT_DIR$/out/production/hw4/PolynomialImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/hw4/Term.class" afterPath="$PROJECT_DIR$/out/production/hw4/Term.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/hw4/PolynomialTest.class" afterPath="$PROJECT_DIR$/out/test/hw4/PolynomialTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/hw4/TermTest.class" afterPath="$PROJECT_DIR$/out/test/hw4/TermTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Polynomial.java" afterPath="$PROJECT_DIR$/src/Polynomial.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PolynomialImpl.java" afterPath="$PROJECT_DIR$/src/PolynomialImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Term.java" afterPath="$PROJECT_DIR$/src/Term.java" />
@@ -324,7 +330,7 @@
       <updated>1518443534488</updated>
       <workItem from="1518443538657" duration="12704000" />
       <workItem from="1518479707050" duration="433000" />
-      <workItem from="1518484850333" duration="12459000" />
+      <workItem from="1518484850333" duration="12528000" />
     </task>
     <servers />
   </component>
@@ -361,7 +367,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25596000" />
+    <option name="totallyTimeSpent" value="25665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -376,7 +382,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6336155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6735187" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24248926" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
