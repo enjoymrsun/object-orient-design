@@ -15,25 +15,25 @@ public class TermTest {
     t3 = new Term("-3x^2");
   }
 
-  @Test(expected = IllegalArgumentException.class)
-  public void testConstructor1() {
-    Term t7 = new Term(0, 5);
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testConstructor2() {
-    Term t7 = new Term("0");
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testConstructor3() {
-    Term t7 = new Term("3x^-4");
-  }
-
-  @Test(expected = IllegalArgumentException.class)
-  public void testConstructor4() {
-    Term t7 = new Term("3x^0");
-  }
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testConstructor1() {
+//    Term t7 = new Term(0, 5);
+//  }
+//
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testConstructor2() {
+//    Term t7 = new Term("0");
+//  }
+//
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testConstructor3() {
+//    Term t7 = new Term("3x^-4");
+//  }
+//
+//  @Test(expected = IllegalArgumentException.class)
+//  public void testConstructor4() {
+//    Term t7 = new Term("3x^0");
+//  }
 
   @Test
   public void testGetCoeff() {
@@ -62,4 +62,5 @@ public class TermTest {
     assertEquals("+4", t2.toString());
     assertEquals("-3x^2", t3.toString());
   }
+
 }

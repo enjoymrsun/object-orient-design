@@ -13,6 +13,7 @@ public class PolynomialTest {
   public void setUp() {
     p1 = new PolynomialImpl("3x^5 -6x^3 -2x^1 +10");
     p2 = new PolynomialImpl("2x^15 -3x^5 +6x^3 +4x^1 -8");
+
     p3 = new PolynomialImpl();
   }
 

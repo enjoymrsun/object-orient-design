@@ -3,7 +3,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.NoSuchElementException;
 
 public class PolynomialImpl implements Polynomial {
   private List<Term> terms;
@@ -23,10 +22,33 @@ public class PolynomialImpl implements Polynomial {
         }
       }
     }
+
+    Map<Integer, Integer> map = new HashMap<>();
+    for (Term t : terms) {
+      map.put(t.getPower(), map.getOrDefault(t.getPower(), 0) + t.getCoeff());
+    }
+
+    terms.clear();
+    for (Integer power : map.keySet()) {
+      if (map.get(power) != 0) {
+        addTerm(map.get(power), power);
+      }
+    }
   }
 
   @Override
-  public void addTerm(int coefficient, int power) {
+  public void addTerm(int coefficient, int power) throws IllegalArgumentException {
+    if (power < 0) {
+      throw new IllegalArgumentException("Power should be positive integer.");
+    }
+
+    for (Term t : terms) {
+      if (t.getPower() == power) {
+        terms.remove(t);
+        terms.add(new Term(t.getCoeff() + coefficient, power));
+        return;
+      }
+    }
     terms.add(new Term(coefficient, power));
   }
 
@@ -50,7 +72,7 @@ public class PolynomialImpl implements Polynomial {
   }
 
   @Override
-  public int getCoefficient(int power) throws NoSuchElementException {
+  public int getCoefficient(int power) {
     for (Term t : terms) {
       if (t.getPower() == power) {
         return t.getCoeff();
@@ -79,12 +101,8 @@ public class PolynomialImpl implements Polynomial {
 
     int otherD = other.getDegree();
     for (int i = 0; i <= otherD; i++) {
-      try {
-        int otherC = other.getCoefficient(i);
-        map.put(i, map.getOrDefault(i, 0) + otherC);
-      } catch (NoSuchElementException e) {
-        System.out.println("This power: " + i + " does not exist in the other polynomial.");
-      }
+      int otherC = other.getCoefficient(i);
+      map.put(i, map.getOrDefault(i, 0) + otherC);
     }
 
     return transfer(map);
@@ -105,16 +123,14 @@ public class PolynomialImpl implements Polynomial {
   public Polynomial multiply(Polynomial other) {
     Map<Integer, Integer> map = new HashMap<>();
 
+    int otherD = other.getDegree();
     for (Term t : terms) {
-      int otherD = other.getDegree();
       for (int i = 0; i <= otherD; i++) {
-        try {
-          int otherC = other.getCoefficient(i);
+        int otherC = other.getCoefficient(i);
+        if (otherC != 0) {
           int newPower = t.getPower() + i;
           int newCoeff = t.getCoeff() * otherC;
           map.put(newPower, map.getOrDefault(newPower, 0) + newCoeff);
-        } catch (NoSuchElementException e) {
-          System.out.println("This power: " + i + " does not exist in the other polynomial.");
         }
       }
     }
@@ -144,5 +160,11 @@ public class PolynomialImpl implements Polynomial {
     }
 
     return sb.toString();
+  }
+
+  public static void main(String[] args) {
+    Polynomial p1 = new PolynomialImpl("-2x^6 +10x^2 -5x^4 +1000");
+    Polynomial p2 = new PolynomialImpl("2");
+    System.out.println("Code result is: " + p1.multiply(p2).evaluate(3) + ".");
   }
 }

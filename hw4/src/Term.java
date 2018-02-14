@@ -6,9 +6,9 @@ public class Term {
     this.coeff = coeff;
     this.power = power;
 
-    if (this.coeff == 0) {
-      throw new IllegalArgumentException("Coefficient of Term should not be 0.");
-    }
+//    if (this.coeff == 0) {
+//      throw new IllegalArgumentException("Coefficient of Term should not be 0.");
+//    }
   }
 
   public Term(String s) throws IllegalArgumentException {
@@ -27,9 +27,9 @@ public class Term {
       }
     }
 
-    if (this.coeff == 0) {
-      throw new IllegalArgumentException("Coefficient of Term should not be 0.");
-    }
+//    if (this.coeff == 0) {
+//      throw new IllegalArgumentException("Coefficient of Term should not be 0.");
+//    }
   }
 
   public int getCoeff() {
