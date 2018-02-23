@@ -43,19 +43,19 @@ public class PolynomialTest {
   }
 
   /**
-   * Test whether the NumberFormatException is thrown when the given string does not follow the
+   * Test whether the IllegalArgumentException is thrown when the given string does not follow the
    * format.
    */
-  @Test(expected = NumberFormatException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testIllegalPolynomial1() {
     Polynomial p100 = new PolynomialImpl("Hello!");
   }
 
   /**
-   * Test whether the NumberFormatException is thrown when the given string does not follow the
+   * Test whether the IllegalArgumentException is thrown when the given string does not follow the
    * format.
    */
-  @Test(expected = NumberFormatException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testIllegalPolynomial2() {
     Polynomial p100 = new PolynomialImpl("4x^3+5x^6");
   }

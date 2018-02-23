@@ -32,7 +32,7 @@ public class TermTest {
   /**
    * Test with invalid input string format.
    */
-  @Test(expected = NumberFormatException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructor2() {
     Term t7 = new Term("n");
   }
@@ -40,7 +40,7 @@ public class TermTest {
   /**
    * Test with invalid power format for the input string.
    */
-  @Test(expected = NumberFormatException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void testConstructor3() {
     Term t7 = new Term("3x^");
   }

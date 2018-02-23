@@ -30,13 +30,21 @@ public class Term {
     int idx = s.indexOf("x^");
 
     if (idx < 0) {
-      this.coeff = Integer.parseInt(s);
-      this.power = 0;
+      try {
+        this.coeff = Integer.parseInt(s);
+        this.power = 0;
+      } catch (Exception e) {
+        throw new IllegalArgumentException("String cannot be parsed into an integer.");
+      }
     } else {
-      String s1 = s.substring(0, idx);
-      String s2 = s.substring(idx + 2);
-      this.coeff = s1.equals("") ? 1 : Integer.parseInt(s1);
-      this.power = Integer.parseInt(s2);
+      try {
+        String s1 = s.substring(0, idx);
+        String s2 = s.substring(idx + 2);
+        this.coeff = s1.equals("") ? 1 : Integer.parseInt(s1);
+        this.power = Integer.parseInt(s2);
+      } catch (Exception e) {
+        throw new IllegalArgumentException("String cannot be parsed into an integer.");
+      }
 
       if (this.power <= 0) {
         throw new IllegalArgumentException("With appearance of x^, power should be positive.");
@@ -55,6 +63,7 @@ public class Term {
 
   /**
    * Return the power.
+   *
    * @return the power
    */
   public int getPower() {

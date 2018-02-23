@@ -21,17 +21,20 @@ public class PolynomialImpl implements Polynomial {
    * Initialize a Polynomial object with the given input string.
    *
    * @param str the given input string need to be parsed
-   * @throws NumberFormatException    when the term's power format cannot parsed to integer
    * @throws IllegalArgumentException when the term's power format is invalid
    */
-  public PolynomialImpl(String str) throws IllegalArgumentException, NumberFormatException {
+  public PolynomialImpl(String str) throws IllegalArgumentException {
     this.terms = new ArrayList<>();
 
     if (str.length() != 0) {
       String[] strs = str.split(" ");
       for (String s : strs) {
         if (!s.equals("0")) {
-          terms.add(new Term(s));
+          try {
+            terms.add(new Term(s));
+          } catch (Exception e) {
+            throw new IllegalArgumentException("Term's power is in an illegal format.");
+          }
         }
       }
 
