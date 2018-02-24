@@ -17,7 +17,6 @@ public class KmeansCluster {
   public static List<Integer> kmeansC(List<Point> points, int k) {
     double prevPercentageError = 1;
     List<Integer> res = new ArrayList<>();
-//    Point[] resCenters = null;
 
     for (int t = 0; t < 10; t++) {
       Point[] centers = new Point[k];
@@ -47,7 +46,6 @@ public class KmeansCluster {
               tempRes.add(cluster);
             }
             res = tempRes;
-            // resCenters = newCenters;
           }
           break;
         }
@@ -57,7 +55,6 @@ public class KmeansCluster {
       }
     }
 
-//    return new KmeansClusterReturn(res, resCenters);
     return res;
   }
 
@@ -73,7 +70,7 @@ public class KmeansCluster {
   private static double computeNewError(List<Point> points, int[] clusters, Point[] newCenters) {
     double sum = 0;
     for (int i = 0; i < points.size(); i++) {
-      Point p = points.get(0);
+      Point p = points.get(i);
       sum += distance(p, newCenters[clusters[i]]);
     }
 
@@ -90,7 +87,8 @@ public class KmeansCluster {
    * @param k        k clusters need to divide these data points into
    * @return each cluster's new center position
    */
-  private static Point[] computeNewCenters(double[] eCXSum, double[] eCYSum, int[] clusters, int k) {
+  private static Point[] computeNewCenters(double[] eCXSum, double[] eCYSum,
+                                           int[] clusters, int k) {
     Point[] newCenters = new Point[k];
 
     int[] count = new int[k];
@@ -114,7 +112,8 @@ public class KmeansCluster {
    * @param k        number of clusters that these data points need to be divided into
    * @return the coordinate(x or y) sum of each cluster's belonged data points
    */
-  private static double[] eachClusterCoordinateSum(List<Point> points, int[] clusters, boolean sumX, int k) {
+  private static double[] eachClusterCoordinateSum(List<Point> points,
+                                                   int[] clusters, boolean sumX, int k) {
     double[] eachClusterXorYSum = new double[k];
     if (sumX) {
       for (int i = 0; i < points.size(); i++) {
@@ -173,7 +172,7 @@ public class KmeansCluster {
   }
 
   /**
-   * Return random center's index in the data points, initialized for start
+   * Return random center's index in the data points, initialized for start.
    *
    * @param size total number of data points
    * @param k    k centers we need to initialized

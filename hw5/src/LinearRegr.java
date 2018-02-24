@@ -21,13 +21,13 @@ public class LinearRegr {
 
     double xAvg = sumTypeOne(points, true) / (double) size;
     double yAvg = sumTypeOne(points, false) / (double) size;
-    double Sxx = sumTypeTwo(points, 1, xAvg, yAvg);
-    double Syy = sumTypeTwo(points, 2, xAvg, yAvg);
-    double Sxy = sumTypeTwo(points, 3, xAvg, yAvg);
-    double d = 2.0 * Sxy / (Sxx - Syy);
+    double sXX = sumTypeTwo(points, 1, xAvg, yAvg);
+    double sYY = sumTypeTwo(points, 2, xAvg, yAvg);
+    double sXY = sumTypeTwo(points, 3, xAvg, yAvg);
+    double d = 2.0 * sXY / (sXX - sYY);
     double theta = Math.atan(d);
-    double ft1 = ft(Sxx, Syy, Sxy, theta);
-    double ft2 = ft(Sxx, Syy, Sxy, theta + PI);
+    double ft1 = ftFunction(sXX, sYY, sXY, theta);
+    double ft2 = ftFunction(sXX, sYY, sXY, theta + PI);
     double t = (ft1 > 0) ? theta : ((ft2 > 0) ? theta + PI : -99999999);
 
     if (t == -99999999) {
@@ -100,16 +100,15 @@ public class LinearRegr {
   }
 
   /**
-   * Return the ft result with the Sxx, Syy, Sxy and t.
+   * Return the ft result with the sXX, sYY, sXY and t.
    *
-   * @param Sxx Sxx input value
-   * @param Syy Syy input value
-   * @param Sxy Sxy input value
+   * @param sXX sXX input value
+   * @param sYY sYY input value
+   * @param sXY sXY input value
    * @param t   theta in radiant format
    * @return the ft result
    */
-  private static double ft(double Sxx, double Syy, double Sxy, double t) {
-    return (Syy - Sxx) * Math.cos(t) - 2 * Sxy * Math.sin(t);
+  private static double ftFunction(double sXX, double sYY, double sXY, double t) {
+    return (sYY - sXX) * Math.cos(t) - 2 * sXY * Math.sin(t);
   }
-
 }

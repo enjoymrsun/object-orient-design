@@ -1,5 +1,5 @@
 /**
- * This class represent a point and all related operations on a Point object
+ * This class represent a point and all related operations on a Point object.
  */
 public class Point {
   private double x;

@@ -30,6 +30,9 @@ public class ImagePlotter {
   private int width;
   private int height;
 
+  /**
+   * Initialize an ImagePlotter object.
+   */
   public ImagePlotter() {
     reset();
     pointSize = 3;
