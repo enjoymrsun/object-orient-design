@@ -5,17 +5,13 @@ import java.util.List;
  * helper private method.
  */
 public class LinearRegr {
-  private static double PI = Math.PI;
-
   /**
    * Returns a best-fit line with an array format: y = kx + b. result[0] is k. result[1] is b.
    *
    * @param points all points that used to generate a line
    * @return a double array contains "y = kx + b"'s k and b
-   * @throws IllegalArgumentException if both ft for theta and theta + 180 are negative, throw an
-   *                                  exception
    */
-  public static double[] fitOneLine(List<Point> points) throws IllegalArgumentException {
+  public static double[] fitOneLine(List<Point> points) {
     double[] res = new double[2];
     int size = points.size();
 
@@ -27,12 +23,9 @@ public class LinearRegr {
     double d = 2.0 * sXY / (sXX - sYY);
     double theta = Math.atan(d);
     double ft1 = ftFunction(sXX, sYY, sXY, theta);
-    double ft2 = ftFunction(sXX, sYY, sXY, theta + PI);
-    double t = (ft1 > 0) ? theta : ((ft2 > 0) ? theta + PI : -99999999);
+    double ft2 = ftFunction(sXX, sYY, sXY, theta + Math.PI);
+    double t = (ft1 > 0) ? theta : ((ft2 > 0) ? theta + Math.PI : -99999999);
 
-    if (t == -99999999) {
-      throw new IllegalArgumentException("Cannot generate valid linear regression result!");
-    }
     double a = Math.cos(t / 2);
     double b = Math.sin(t / 2);
     double c = -a * xAvg - b * yAvg;

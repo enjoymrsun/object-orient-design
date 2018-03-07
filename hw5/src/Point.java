@@ -34,4 +34,13 @@ public class Point {
     return y;
   }
 
+  /**
+   * Return the String format for this Point object.
+   *
+   * @return the String format
+   */
+  @Override
+  public String toString() {
+    return String.format("%.2f,%.2f; ", x, y);
+  }
 }

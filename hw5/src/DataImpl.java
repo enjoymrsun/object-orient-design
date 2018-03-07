@@ -50,8 +50,13 @@ public class DataImpl {
    *
    * @param k number of clusters that need to divide these data points into
    * @return a list of integer represent each data point's belonged cluster
+   * @throws IllegalArgumentException if k is equal or below 0
    */
-  public List<Integer> kmeans(int k) {
+  public List<Integer> kmeans(int k) throws IllegalArgumentException {
+    if (k <= 0) {
+      throw new IllegalArgumentException("k should be greater than 0.");
+    }
+
     return KmeansCluster.kmeansC(points, k);
   }
 
@@ -70,5 +75,26 @@ public class DataImpl {
     } catch (FileNotFoundException e) {
       System.out.println("No Such File Found For: " + fileSource);
     }
+  }
+
+  /**
+   * Return the String format of this DataImpl object.
+   *
+   * @return string format of this DataImpl object
+   */
+  @Override
+  public String toString() {
+    if (points.size() == 0) {
+      return "";
+    }
+
+    StringBuilder sb = new StringBuilder();
+
+    for (Point p : points) {
+      sb.append(p.toString());
+    }
+    int length = sb.length();
+
+    return sb.deleteCharAt(length - 1).toString();
   }
 }
