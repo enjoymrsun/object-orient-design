@@ -1,0 +1,24 @@
++ hw1 20 30 3
+min
++ project1 50 60 12
++ project2 30 50 20
++ exam1 100 50
+assign exam1 90
+divide exam1 exam
+divide project1 project
+divide project2 project
+divide hw1 assignment
+getScore
+getScore exam
+getScore project
+max
+min
++ exam2 60 15
+assign exam2 20
+divide exam2 exam
+getScore exam
+getScore
+min
+max
+getPercent
+quit
