@@ -29,3 +29,9 @@ Includes supported operation types.
 
 AnimationTest:
 Test illegal operations and implement text output.
+
+问题：
+1. 颜色全是绿色的，正常应该包含不同颜色，颜色读取的input有问题
+2. 那些rectangle形状的0点 是左下角还是左上角 @param pos  bottom left corner coordinates
+3. oval 里那个dur是随意设置的么？
+4. operation好像没有严格按照时间排序

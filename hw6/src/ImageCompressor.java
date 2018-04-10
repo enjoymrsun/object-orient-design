@@ -17,7 +17,7 @@ public class ImageCompressor {
       System.out.println("No." + i + " argument is: " + args[i]);
     }
 
-    if (args.length >= 8 || args.length < 2) {
+    if (args.length > 4 || args.length < 2) {
       System.err.println("You have too many or too little arguments!");
       System.exit(-1);
     }

@@ -1,40 +1,56 @@
+package cs5004.animator.model;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * This class contains tests for the animation.
  */
-public class AnimationTest {
-  Animation ani;
+public class IAnimationTest {
+  private IAnimation ani;
 
   /**
    * Initialize the animation.
    */
   @Before
   public void setup() {
-    ani = new Animation();
-
-    ani.addShape(ShapeType.RECTANGLE, 'R', 200.0, 200.0, 50.0, 100.0,
-            1.0, 0.0, 0.0, 1, 100);
-    ani.addShape(ShapeType.OVAL, 'C', 500.0, 100.0, 60.0, 30.0,
-            0.0, 0.0, 1.0, 6, 100);
-
-    ani.moveShape('R', 300.0, 300.0, 10, 50);
-    ani.moveShape('C', 500.0, 400.0, 20, 70);
-    ani.changeShapeColor('C', 0.0, 1.0, 0.0, 50, 80);
-    ani.scaleShape('R', 25.0, 100.0, 51, 70);
-    ani.moveShape('R', 200.0, 200.0, 70, 100);
-
-    ani.textRender();
+    ani = new AnimationImpl();
+    ani.addShape();
   }
+
+
+  @Test
+  public void testAddShape() {
+  }
+
+  @Test
+  public void testMoveShape() {
+  }
+
+  @Test
+  public void testScaleShape() {
+  }
+
+  @Test
+  public void testChangeShapeColor() {
+  }
+
+  @Test
+  public void testGetAni() {
+  }
+
+
+
 
   /**
    * Test Illegal AddShape when the name already exists.
    */
   @Test(expected = IllegalArgumentException.class)
   public void testIllegalAddShape() {
-    ani.addShape(ShapeType.OVAL, 'C', 500.0, 100.0, 60.0, 30.0,
-            0.0, 0.0, 1.0, 6, 100);
+//    ani.addShape(ShapeType.OVAL, 'C', 500.0, 100.0, 60.0, 30.0,
+//            0.0, 0.0, 1.0, 6, 100);
   }
 
   /**
@@ -42,7 +58,7 @@ public class AnimationTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void testIllegalMoveShape() {
-    ani.moveShape('R', 300.0, 300.0, 60, 50);
+//    ani.moveShape('R', 300.0, 300.0, 60, 50);
   }
 
   /**
@@ -50,7 +66,7 @@ public class AnimationTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void testIllegalScaleShape() {
-    ani.moveShape('C', 300.0, 300.0, 1, 50);
+//    ani.moveShape('C', 300.0, 300.0, 1, 50);
   }
 
   /**
@@ -58,7 +74,7 @@ public class AnimationTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void testIllegalChangeShapeColor() {
-    ani.moveShape('E', 300.0, 300.0, 10, 50);
+//    ani.moveShape('E', 300.0, 300.0, 10, 50);
   }
 
   /**
@@ -66,6 +82,7 @@ public class AnimationTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void testCheckOverlap() {
-    ani.moveShape('R', 200.0, 200.0, 20, 60);
+//    ani.moveShape('R', 200.0, 200.0, 20, 60);
   }
+
 }
